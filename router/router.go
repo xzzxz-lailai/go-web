@@ -34,6 +34,7 @@ func Router() *gin.Engine {
 		auth.POST("/email/code", handler.SendEmailCodeHandler)       // 发送邮件验证码(用于绑定邮箱,不是更换邮箱)
 		auth.POST("/email/confirm", handler.ConfirmEmailHandler)     // 验证邮箱验证码(用于绑定邮箱,不是更换邮箱)
 		auth.POST("/user/loginlog/list", handler.GetLoginLogHandler) //  管理员获取登录日志记录列表(分页查询)
+		auth.GET("/weather", handler.GetWeatherHandler)              // 查询天气
 	}
 	return r
 }

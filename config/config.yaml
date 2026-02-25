@@ -24,3 +24,6 @@ smtp:
   pass: ksohrtxozczeebbc   # SMTP 授权码
   from: 2538114164@qq.com
   from_name: 系统通知
+
+api:
+  weather_key: fb1159241ca1f838cb98e137343fffef   # 天气 ApiKey

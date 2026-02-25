@@ -10,6 +10,7 @@ type Config struct {
 	Redis  RedisConfig  `mapstructure:"redis"`
 	JWT    JWTConfig    `mapstructure:"jwt"`
 	SMTP   SMTPConfig   `mapstructure:"smtp"`
+	Api    ApiConfig    `mapstructure:"api"`
 }
 
 type ServerConfig struct {
@@ -43,6 +44,10 @@ type SMTPConfig struct {
 	Pass      string
 	From      string
 	From_Name string
+}
+
+type ApiConfig struct {
+	Weather_key string
 }
 
 var Cfg Config
