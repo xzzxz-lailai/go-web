@@ -2,6 +2,7 @@ package config
 
 import (
 	"github.com/spf13/viper"
+	"strings"
 )
 
 type Config struct {
@@ -53,13 +54,13 @@ type ApiConfig struct {
 var Cfg Config
 
 func InitConfig() {
-	// 配置文件名（不带扩展名）
-	viper.SetConfigName("config")
+	content := InitNacos() // 从 Nacos 拉配置（返回 yaml 字符串）
+
 	// 配置文件类型（扩展名）
-	viper.SetConfigType("yml")
-	// 配置文件路径
-	viper.AddConfigPath("./config")
-	err := viper.ReadInConfig()
+	viper.SetConfigType("yaml")
+
+	// 读取配置内容
+	err := viper.ReadConfig(strings.NewReader(content))
 	if err != nil {
 		panic(err)
 	}
