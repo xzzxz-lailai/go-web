@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"github.com/nacos-group/nacos-sdk-go/v2/clients"
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/v2/vo"
@@ -12,7 +11,7 @@ func InitNacos() string {
 	// 配置nacos服务信息
 	serverConfigs := []constant.ServerConfig{
 		{
-			IpAddr: "127.0.0.1",
+			IpAddr: "172.17.0.2",
 			Port:   8848,
 		},
 	}
@@ -37,7 +36,6 @@ func InitNacos() string {
 	if err != nil {
 		panic(err) // 如果失败,直接退出
 	}
-	fmt.Println("正在连接 Nacos...")
 
 	// 从nacos拉取配置
 	content, err := configClient.GetConfig(vo.ConfigParam{

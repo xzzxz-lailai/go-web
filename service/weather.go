@@ -19,7 +19,8 @@ func GetWeather(city string) (WeatherInfo, error) {
 	Params := url.Values{}
 	Params.Set("key", config.Cfg.Api.Weather_key) // 从配置文件读取天气 API Key
 	Params.Set("city", city)
-	// 发起接口网络请求
+
+	// 发起接口网络请求,天气是15-30分钟更新一次
 	resp, err := http.Get("http://apis.juhe.cn/simpleWeather/query" + "?" + Params.Encode())
 	if err != nil {
 		fmt.Println("网络请求异常:", err)

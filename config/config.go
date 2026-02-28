@@ -5,15 +5,6 @@ import (
 	"strings"
 )
 
-type Config struct {
-	Server ServerConfig `mapstructure:"server"`
-	MySQL  MySQLConfig  `mapstructure:"mysql"`
-	Redis  RedisConfig  `mapstructure:"redis"`
-	JWT    JWTConfig    `mapstructure:"jwt"`
-	SMTP   SMTPConfig   `mapstructure:"smtp"`
-	Api    ApiConfig    `mapstructure:"api"`
-}
-
 type ServerConfig struct {
 	Port string `mapstructure:"port"`
 }
@@ -49,6 +40,15 @@ type SMTPConfig struct {
 
 type ApiConfig struct {
 	Weather_key string
+}
+
+type Config struct {
+	Server ServerConfig `mapstructure:"server"`
+	MySQL  MySQLConfig  `mapstructure:"mysql"`
+	Redis  RedisConfig  `mapstructure:"redis"`
+	JWT    JWTConfig    `mapstructure:"jwt"`
+	SMTP   SMTPConfig   `mapstructure:"smtp"`
+	Api    ApiConfig    `mapstructure:"api"`
 }
 
 var Cfg Config
